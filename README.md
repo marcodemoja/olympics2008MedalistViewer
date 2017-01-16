@@ -1,3 +1,8 @@
+##TODO
+    - provide sorting actions for header list buttons
+    - display athletes details on mouse over medals cells
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

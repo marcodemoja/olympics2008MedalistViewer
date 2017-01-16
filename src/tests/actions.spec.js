@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import nock from 'nock'
-import jsonData from '../../public/olympics_2008_medalists.json'
+//import nock from 'nock'
+//import jsonData from '../../public/olympics_2008_medalists.json'
 import * as actions from '../actions'
 
 

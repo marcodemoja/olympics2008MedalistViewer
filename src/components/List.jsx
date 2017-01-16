@@ -8,7 +8,7 @@ class List extends Component {
         items: React.PropTypes.array
     }
 
-    renderItem(item){
+    renderItem(item,counter){
         return <Item key={item.country} medals={item.all} country={item.country} gold={item.gold} silver={item.silver} bronze={item.bronze} />
     }
 
@@ -17,8 +17,8 @@ class List extends Component {
         for (let i in this.props.items) {
             items.push(this.renderItem(this.props.items[i]))
         }
-        /* I wanted to implement sorting desc/asc for every medal column into the table that's why these buttons into the render method
-           but I haven't enough time.
+
+        /* @TODO provide sorting action for buttons
         */
         return (<Table responsive hover striped bordered condensed>
                 <thead>
