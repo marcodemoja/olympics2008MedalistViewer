@@ -1,0 +1,22 @@
+body{
+    margin:0;
+    padding:0;
+}
+body section{
+    margin:12px;
+}
+.table-responsive{
+    margin-top:21px;
+    float:left;
+    width: 100%;
+}
+
+.medals-list-header td div,
+.medals-list-header td div button{
+    width:100%;
+}
+
+.filterButton{
+    float:right;
+    display:block;
+}

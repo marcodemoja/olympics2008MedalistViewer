@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {fetchMedals} from '../actions'
-import FilterButton from '../components/FilterButton'
+import {DropdownButton, MenuItem, ButtonGroup} from 'react-bootstrap'
 
 class FiltersContainer extends React.Component{
 
@@ -15,9 +15,14 @@ class FiltersContainer extends React.Component{
     }
 
     render(){
-        return (<div> <FilterButton onClick={e => this.handleFilter('gold')} filterValue="gold" label="Gold"/>
-            <FilterButton onClick={e => this.handleFilter('silver')} filterValue="silver" label="Silver"/>
-            <FilterButton onClick={e => this.handleFilter('bronze')} filterValue="bronze" label="Bronze"/></div>)
+        return (<ButtonGroup className="filterButton">
+                <DropdownButton id="bg-justified-dropdown" title="Filter">
+                    <MenuItem onClick={e => this.handleFilter('gold')}>Gold</MenuItem>
+                    <MenuItem onClick={e => this.handleFilter('silver')}>Silver</MenuItem>
+                    <MenuItem onClick={e => this.handleFilter('bronze')}>Bronze</MenuItem>
+                    <MenuItem onClick={e => this.handleFilter('all')}>All</MenuItem>
+                </DropdownButton>
+        </ButtonGroup>)
     }
 }
 

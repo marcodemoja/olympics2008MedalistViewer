@@ -9,30 +9,28 @@ class AsyncListContainer extends React.Component{
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         isLoading: PropTypes.bool.isRequired,
-        items: PropTypes.array.isRequired,
+        data: PropTypes.object.isRequired,
         selectedFilter: PropTypes.string.isRequired
     }
 
-
-    /*constructor(props){
-        super(props)
-
-    }*/
-
     componentDidMount(){
-        this.props.dispatch(fetchMedals('total'))
+        this.props.dispatch(fetchMedals('all'))
     }
 
     componentWillReceiveProps(){
     }
 
     render(){
-        if(!this.props.isLoading && this.props.items.length > 0){
+        if(!this.props.isLoading){
+            let items = this.props.data[this.props.selectedFilter]
+
             return (<section className="filterContainer">
-                <FiltersContainer />
-                <div><List items={this.props.items} /></div>
-            </section>)
-         } else {
+                        <h2>2008 Olympic Ranking</h2>
+                        <FiltersContainer />
+                        <div><List items={items} /></div>
+                    </section>)
+
+        } else {
             return <div>Loading</div>
          }
 
@@ -40,12 +38,9 @@ class AsyncListContainer extends React.Component{
     }
 }
 
-
 function mapStateToProps(state){
     return {
-        items: state.data,
-        isLoading:state.isLoading,
-        selectedFilter: state.selectedFilter
+        ...state
     }
 }
 
