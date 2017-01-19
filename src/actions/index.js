@@ -1,4 +1,4 @@
-import $ from 'jquery'
+import fetch from 'isomorphic-fetch'
 
 export function fetchMedals(type){
     return (dispatch, getState) => {
@@ -19,7 +19,13 @@ export function fetchMedals(type){
         }
 
         //let s call the JSON file just at the first page loading
-        return $.get("http://localhost:3000/olympics_2008_medalists.json").done((items) => {
+        return fetch("http://localhost:3000/olympics_2008_medalists.json").then((response) => {
+            if(response.status > 400){
+                throw new Error('bad response from server')
+            }else{
+                return response.json()
+            }
+        }).then((items) => {
             let rankable = sortInitData(items);
             dispatch(receiveMedals(getState(), rankable))
         })
