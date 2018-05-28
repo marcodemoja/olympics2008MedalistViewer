@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { fetchMedals } from '../actions'
 
 class AsyncListContainer extends React.Component{
-
+    //@FIXME we need to decouple propTypes from component declaration 
+    //@TODO to create a subcomponent for title and itemList wrapper 
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         isLoading: PropTypes.bool.isRequired,
