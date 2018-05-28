@@ -44,5 +44,5 @@ function mapStateToProps(state){
         ...state
     }
 }
-
+//DITTO are we gonna change component here for the second release?
 export default connect(mapStateToProps)(AsyncListContainer)
